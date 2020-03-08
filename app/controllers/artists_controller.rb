@@ -1,8 +1,11 @@
 class ArtistsController < ApplicationController
-  def index
+  
+  def index 
+    @artists = Artist.all
   end
 
   def show
+    @artist = Artist.find(params[:id])
   end
 
   def new
@@ -10,6 +13,7 @@ class ArtistsController < ApplicationController
   end
 
   def create
+    # binding.pry
     @artist = Artist.new(artist_params)
 
     if @artist.save
